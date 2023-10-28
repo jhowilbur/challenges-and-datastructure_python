@@ -11,10 +11,14 @@ class Solution:
         #         return value
         # return 0
 
-        # right way
+        # right way Gauss
+        N = len(A) + 1
+        total = (N * (N+1)) // 2
 
+        for value in A:
+            total -= value
 
-        return None
+        return total
 
 
 if __name__ == "__main__":
