@@ -23,6 +23,14 @@ class LinkedList:
         self.length += 1
         return True
 
+    def prepend(self, value):
+        new_node = Node(value)
+        pointer_old_head = self.head
+        new_node.next = pointer_old_head
+        self.head = new_node
+        self.length += 1
+        return True
+
     def pop(self):
         if self.length == 0:
             return None
@@ -43,6 +51,12 @@ class LinkedList:
 
         return pre_node
 
+    def pop_first(self):
+        pointer_next_head = self.head.next
+        self.head = pointer_next_head
+        self.length -= 1
+        return True
+
     def find_middle(self):
         slow_pointer = self.head
         fast_pointer = self.head
@@ -53,11 +67,40 @@ class LinkedList:
 
         return slow_pointer
 
+    def has_loop(self):
+        slow = self.head
+        fast = self.head
+
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
+
+    def get_node_by_index(self, index):
+        if self.length < index < 0:
+                return None
+
+        temp_pointer = self.head
+        for _ in range(index):
+            temp_pointer = temp_pointer.next
+        return temp_pointer
+
 
 my_ll = LinkedList(4)
 my_ll.append(5)
 my_ll.append(7)
 my_ll.append(8)
-# my_ll.print_value()
 
-print(my_ll.find_middle().value)
+# testing the functions
+
+# my_ll.print_value()
+# print(my_ll.find_middle().value)
+# my_ll.has_loop()
+# print(my_ll.get_node_by_index(2).value)  # don't forget the index starts with 0
+
+# my_ll.pop()
+my_ll.prepend(10)
+my_ll.pop_first()
+my_ll.print_value()
