@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, value):
+    def __init__(self, value=None):
         self.value = value
         self.next = None
 
@@ -10,7 +10,7 @@ class LinkedList:
         self.tail = self.head
         self.length = 1
 
-    def print_value(self):
+    def print_values(self):
         current_node = self.head
         while current_node:
             print(current_node.value)
@@ -87,6 +87,9 @@ class LinkedList:
             temp_pointer = temp_pointer.next
         return temp_pointer
 
+    def reverse(self):
+        return None
+
 
 my_ll = LinkedList(4)
 my_ll.append(5)
@@ -95,12 +98,15 @@ my_ll.append(8)
 
 # testing the functions
 
-# my_ll.print_value()
+# my_ll.print_values()
 # print(my_ll.find_middle().value)
 # my_ll.has_loop()
 # print(my_ll.get_node_by_index(2).value)  # don't forget the index starts with 0
 
 # my_ll.pop()
-my_ll.prepend(10)
-my_ll.pop_first()
-my_ll.print_value()
+# my_ll.prepend(10)
+# my_ll.pop_first()
+# my_ll.print_values()
+
+my_ll.reverse()
+my_ll.print_values()
