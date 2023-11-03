@@ -80,7 +80,7 @@ class LinkedList:
 
     def get_node_by_index(self, index):
         if self.length < index < 0:
-                return None
+            return None
 
         temp_pointer = self.head
         for _ in range(index):
@@ -88,7 +88,16 @@ class LinkedList:
         return temp_pointer
 
     def reverse(self):
-        return None
+        temp_node = self.head
+        self.head = self.tail
+        self.tail = temp_node
+        before_node = None
+
+        for i in range(self.length):
+            next_node = temp_node.next
+            temp_node.next = before_node
+            before_node = temp_node
+            temp_node = next_node
 
 
 my_ll = LinkedList(4)
