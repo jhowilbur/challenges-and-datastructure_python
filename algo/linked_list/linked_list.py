@@ -88,16 +88,21 @@ class LinkedList:
         return temp_pointer
 
     def reverse(self):
-        temp_node = self.head
+        current_node = self.head
         self.head = self.tail
-        self.tail = temp_node
-        before_node = None
+        self.tail = current_node
+        previous_node = None
 
-        for i in range(self.length):
-            next_node = temp_node.next
-            temp_node.next = before_node
-            before_node = temp_node
-            temp_node = next_node
+        for _ in range(self.length):
+            next_node = current_node.next
+            current_node.next = previous_node
+            previous_node = current_node
+            current_node = next_node
+
+    def remove(self, index):
+        if self.length < index < 0:
+            return None
+
 
 
 my_ll = LinkedList(4)
@@ -118,4 +123,7 @@ my_ll.append(8)
 # my_ll.print_values()
 
 my_ll.reverse()
+# my_ll.print_values()
+
+# my_ll.remove()
 my_ll.print_values()
