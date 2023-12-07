@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
     print(s.solution([1, 2, 3, 4, 5, 6]))  # Expected output: 0
 
-    print(s.solution([4, 4, 4, 4, 4, 4]))  # Expected output: 5 (every split results in two sequences with the same leader)
+    print(s.solution([4, 4, 4, 4, 4, 4]))  # Expected output: 5 (every split results in 2 sequences with the same leader)
 
     print(s.solution([4, 4, 4, 2, 2, 2]))  # Expected output: 0
 

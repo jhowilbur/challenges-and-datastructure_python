@@ -40,15 +40,16 @@ class BinaryTree:
         if node.left_edge:
             self.print_tree(node=node.left_edge)
 
-    # TODO complete the remove method
     @default_node
-    def remove_big_node(self, node=None):
-        while node.right_edge is not None:
-            actual_node = node
+    def remove(self, value, node=None):
+        if node and value == node.value:
+            print("value %s" % node.value)
             node = node.right_edge
-            if node.right_edge is None:
-                actual_node.right_edge = None
-                return actual_node
+
+        if node.right_edge:
+            self.remove(value, node=node.right_edge)
+        elif node.left_edge:
+            self.remove(value, node=node.left_edge)
 
 
 binary_tree = BinaryTree(2)
@@ -64,8 +65,6 @@ binary_tree.append(3)
 binary_tree.append(4)
 binary_tree.append(5)
 
+# binary_tree.print_tree()
+binary_tree.remove(4)
 binary_tree.print_tree()
-
-# binary_tree = binary_tree.remove_big_node()
-#
-# print(binary_tree)

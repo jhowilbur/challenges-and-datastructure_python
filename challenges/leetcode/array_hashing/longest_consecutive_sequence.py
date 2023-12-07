@@ -22,7 +22,7 @@ class Solution:
                     current_num += 1
                     current_streak += 1
 
-                # Update our longest streak if this one is more delicious!
+                # Update our longest streak if this 1 is more delicious!
                 longest_streak = max(longest_streak, current_streak)
 
         # Return the height of the mightiest burger tower!

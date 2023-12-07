@@ -93,16 +93,9 @@ class LinkedList:
         self.tail = current_node
         previous_node = None
 
-        for _ in range(self.length):
-            next_node = current_node.next
-            current_node.next = previous_node
-            previous_node = current_node
-            current_node = next_node
-
     def remove(self, index):
         if self.length < index < 0:
             return None
-
 
 
 my_ll = LinkedList(4)
